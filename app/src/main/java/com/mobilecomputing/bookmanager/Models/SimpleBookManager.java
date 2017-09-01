@@ -27,7 +27,7 @@ public class SimpleBookManager implements BookManager {
 
     @Override
     public Book getBook(int index) {
-        return null;
+        return books.get(index);
     }
 
     @Override
