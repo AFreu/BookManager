@@ -1,6 +1,7 @@
 package com.mobilecomputing.bookmanager.Models;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by Libra on 01/09/17.
@@ -15,7 +16,9 @@ public class SimpleBookManager implements BookManager {
         books = new ArrayList<>();
 
         for(int i = 0; i < 5; i++){
-            books.add(new Book());
+            Book book = new Book();
+            book.setTitle("Book"+i);
+            books.add(book);
         }
 
     }
@@ -32,7 +35,9 @@ public class SimpleBookManager implements BookManager {
 
     @Override
     public Book createBook() {
-        return null;
+        Book book = new Book();
+        books.add(book);
+        return book;
     }
 
     @Override
@@ -42,32 +47,60 @@ public class SimpleBookManager implements BookManager {
 
     @Override
     public void removeBook(Book book) {
-
+        books.remove(book);
     }
 
     @Override
     public void moveBook(int from, int to) {
-
+        Book book = books.get(from);
+        books.remove(from);
+        books.add(to, book);
     }
 
     @Override
     public int getMinPrice() {
-        return 0;
+        Iterator<Book> itr = books.iterator();
+        int min = -1;
+        while(itr.hasNext()) {
+            int next = itr.next().getPrice();
+            min = min < next ? min : next;
+        }
+        return min;
     }
 
     @Override
     public int getMaxPrice() {
-        return 0;
+        Iterator<Book> itr = books.iterator();
+        int max = -1;
+        while(itr.hasNext()) {
+            int next = itr.next().getPrice();
+            max = max < next ? next : max;
+        }
+        return max;
     }
 
     @Override
     public float getMeanPrice() {
-        return 0;
+        Iterator<Book> itr = books.iterator();
+        int total = -1;
+        int bookCount = 0;
+        while(itr.hasNext()) {
+            int next = itr.next().getPrice();
+            total += next;
+            bookCount++;
+        }
+        return bookCount > 0 ? total/bookCount : total;
     }
 
     @Override
     public int getTotalCost() {
-        return 0;
+        Iterator<Book> itr = books.iterator();
+        int total = -1;
+        while(itr.hasNext()) {
+            int next = itr.next().getPrice();
+            total += next;
+        }
+        return total;
     }
 
     @Override
