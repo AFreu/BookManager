@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mobilecomputing.bookmanager.DetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv1"
+                android:text="@string/details_title"
+                style="@style/TitleText"
+                android:layout_centerVertical="true"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/details_title"
+                style="@style/NormalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/tv1"
+                android:text="Placeholder Title" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv2"
+                android:text="@string/details_author"
+                style="@style/TitleText"
+                android:layout_centerVertical="true" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/details_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Placeholder Author"
+                style="@style/NormalText"
+                android:layout_toEndOf="@id/tv2"
+                android:layout_centerVertical="true"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv3"
+                android:text="@string/details_course"
+                style="@style/TitleText"
+                android:layout_centerVertical="true" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/details_course"
+                style="@style/NormalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/tv3"
+                android:text="Placeholder Course" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv4"
+                android:text="@string/details_price"
+                style="@style/TitleText"
+                android:layout_centerVertical="true" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/details_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Placeholder Price"
+                style="@style/NormalText"
+                android:layout_toEndOf="@id/tv4"
+                android:layout_centerVertical="true"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv5"
+                android:text="@string/details_ISBN"
+                style="@style/TitleText"
+                android:layout_centerVertical="true" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/details_ISBN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Placeholder ISBN"
+                style="@style/NormalText"
+                android:layout_toEndOf="@id/tv5"
+                android:layout_centerVertical="true"
+                />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</android.widget.RelativeLayout>
