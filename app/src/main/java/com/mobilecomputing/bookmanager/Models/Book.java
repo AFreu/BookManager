@@ -1,5 +1,8 @@
 package com.mobilecomputing.bookmanager.Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Libra on 01/09/17.
  */
@@ -63,4 +66,5 @@ public class Book {
     public void setCourse(String course) {
         this.course = course;
     }
+
 }
