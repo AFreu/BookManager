@@ -1,10 +1,15 @@
 package com.mobilecomputing.bookmanager.Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 /**
  * Created by Libra on 01/09/17.
  */
 
-public class Book {
+public class Book implements Serializable{
 
     private String author;
     private String title;
@@ -63,4 +68,5 @@ public class Book {
     public void setCourse(String course) {
         this.course = course;
     }
+
 }

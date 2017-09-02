@@ -1,5 +1,6 @@
 package com.mobilecomputing.bookmanager.Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -7,7 +8,7 @@ import java.util.Iterator;
  * Created by Libra on 01/09/17.
  */
 
-public class SimpleBookManager implements BookManager {
+public class SimpleBookManager implements BookManager, Serializable {
 
     private ArrayList<Book> books;
 

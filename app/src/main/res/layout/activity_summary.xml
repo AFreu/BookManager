@@ -21,7 +21,7 @@
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv1"
                 android:text="@string/summary_totalCost"
-                style="@style/TitleText"
+                style="@style/GridTitleText"
                 android:layout_centerVertical="true"
                 android:layout_column="0"
                 android:layout_row="0"/>
@@ -31,7 +31,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/tv1"
                 android:text="Placeholder Title"
                 android:layout_column="1"
                 android:layout_row="0" />
@@ -39,7 +38,7 @@
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv2"
                 android:text="@string/summary_mostExpensive"
-                style="@style/TitleText"
+                style="@style/GridTitleText"
                 android:layout_centerVertical="true"
                 android:layout_column="0"
                 android:layout_row="1"/>
@@ -49,15 +48,14 @@
                 android:layout_height="wrap_content"
                 android:text="Placeholder Author"
                 style="@style/NormalText"
-                android:layout_toEndOf="@id/tv2"
                 android:layout_centerVertical="true"
                 android:layout_column="1"
                 android:layout_row="1"/>
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv3"
-                android:text="@string/Summary_leastExpensive"
-                style="@style/TitleText"
+                android:text="@string/summary_leastExpensive"
+                style="@style/GridTitleText"
                 android:layout_centerVertical="true"
                 android:layout_column="0"
                 android:layout_row="2"/>
@@ -67,7 +65,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/tv3"
                 android:text="Placeholder Course"
                 android:layout_column="1"
                 android:layout_row="2" />
@@ -75,7 +72,7 @@
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv4"
                 android:text="@string/summary_avaragePrice"
-                style="@style/TitleText"
+                style="@style/GridTitleText"
                 android:layout_centerVertical="true"
                 android:layout_column="0"
                 android:layout_row="3"/>
@@ -85,7 +82,6 @@
                 android:layout_height="wrap_content"
                 android:text="Placeholder Price"
                 style="@style/NormalText"
-                android:layout_toEndOf="@id/tv4"
                 android:layout_centerVertical="true"
                 android:layout_column="1"
                 android:layout_row="3"/>

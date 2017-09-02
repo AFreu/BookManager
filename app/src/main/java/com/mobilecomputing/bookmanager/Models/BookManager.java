@@ -1,5 +1,6 @@
 package com.mobilecomputing.bookmanager.Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
