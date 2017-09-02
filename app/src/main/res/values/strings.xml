@@ -8,7 +8,7 @@
     <string name="details_ISBN">ISBN:</string>
 
 
-    <string name="summary_bookCount"> books in your library</string>
+    <string name="summary_bookCount">books in your library</string>
     <string name="summary_totalCost">Total cost: </string>
     <string name="summary_mostExpensive">Most expensive item: </string>
     <string name="summary_leastExpensive">Least expensive item: </string>

@@ -19,6 +19,7 @@ public class SimpleBookManager implements BookManager, Serializable {
         for(int i = 0; i < 5; i++){
             Book book = new Book();
             book.setTitle("Book"+i);
+            book.setPrice(i);
             books.add(book);
         }
 
@@ -64,7 +65,7 @@ public class SimpleBookManager implements BookManager, Serializable {
         int min = -1;
         while(itr.hasNext()) {
             int next = itr.next().getPrice();
-            min = min < next ? min : next;
+            min = min < next && min != -1 ? min : next;
         }
         return min;
     }
