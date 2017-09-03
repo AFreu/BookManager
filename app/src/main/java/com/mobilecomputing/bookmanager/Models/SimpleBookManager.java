@@ -88,7 +88,7 @@ public class SimpleBookManager implements BookManager, Serializable {
         int bookCount = 0;
         while(itr.hasNext()) {
             int next = itr.next().getPrice();
-            total += next;
+            total += (total == -1 ? next+1 : next == -1 ? 0 : next);
             bookCount++;
         }
         return bookCount > 0 ? total/bookCount : total;
@@ -100,7 +100,7 @@ public class SimpleBookManager implements BookManager, Serializable {
         int total = -1;
         while(itr.hasNext()) {
             int next = itr.next().getPrice();
-            total += next;
+            total += (total == -1 ? next+1 : next == -1 ? 0 : next);
         }
         return total;
     }
