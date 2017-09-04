@@ -20,16 +20,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
+                android:id="@+id/summary_bookCount"
+                style="@style/HeadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/HeadingText"
-                android:id="@+id/summary_bookCount"/>
+                android:text="@string/placeholder_number" />
+
             <TextView
+                style="@style/HeadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/HeadingText"
-                android:text="@string/summary_bookCount"/>
+                android:text="@string/summary_bookCount" />
         </LinearLayout>
 
         <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -47,16 +50,17 @@
                     android:layout_marginEnd="2dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"/>
+
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/summary_totalCost"
                     style="@style/NormalText"
                     android:layout_width="0dp"
-                    android:layout_weight=".6"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Placeholder Title"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_weight=".6"
+                    android:text="@string/placeholder_string" />
 
             </TableRow>
             <TableRow>
@@ -70,16 +74,17 @@
                     android:layout_marginEnd="2dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"/>
+
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/summary_mostExpensive"
-                    android:layout_width="0dp"
-                    android:layout_weight=".6"
-                    android:layout_height="wrap_content"
-                    android:text="Placeholder Author"
                     style="@style/NormalText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_weight=".6"
+                    android:text="@string/placeholder_string" />
 
             </TableRow>
             <TableRow>
@@ -93,16 +98,17 @@
                     android:layout_marginEnd="2dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"/>
+
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/summary_leastExpensive"
                     style="@style/NormalText"
                     android:layout_width="0dp"
-                    android:layout_weight=".6"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Placeholder Course"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_weight=".6"
+                    android:text="@string/placeholder_string" />
 
             </TableRow>
             <TableRow>
@@ -116,16 +122,17 @@
                     android:layout_marginEnd="2dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"/>
+
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/summary_avaragePrice"
-                    android:layout_width="0dp"
-                    android:layout_weight=".6"
-                    android:layout_height="wrap_content"
-                    android:text="Placeholder Price"
                     style="@style/NormalText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_weight=".6"
+                    android:text="@string/placeholder_string" />
 
             </TableRow>
         </TableLayout>

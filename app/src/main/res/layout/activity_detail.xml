@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/tv1"
-                android:text="Placeholder Title" />
+                android:text="@string/placeholder_string" />
 
         </RelativeLayout>
 
@@ -42,19 +42,18 @@
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv2"
-                android:text="@string/details_author"
                 style="@style/TitleText"
-                android:layout_centerVertical="true" />
+                android:layout_centerVertical="true"
+                android:text="@string/details_author" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/details_author"
+                style="@style/NormalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Placeholder Author"
-                style="@style/NormalText"
-                android:layout_toEndOf="@id/tv2"
                 android:layout_centerVertical="true"
-                />
+                android:layout_toEndOf="@id/tv2"
+                android:text="@string/placeholder_string" />
 
 
         </RelativeLayout>
@@ -77,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/tv3"
-                android:text="Placeholder Course" />
+                android:text="@string/placeholder_string" />
 
 
         </RelativeLayout>
@@ -95,13 +94,12 @@
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/details_price"
+                style="@style/NormalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Placeholder Price"
-                style="@style/NormalText"
-                android:layout_toEndOf="@id/tv4"
                 android:layout_centerVertical="true"
-                />
+                android:layout_toEndOf="@id/tv4"
+                android:text="@string/placeholder_string" />
 
 
         </RelativeLayout>
@@ -119,13 +117,12 @@
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/details_ISBN"
+                style="@style/NormalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Placeholder ISBN"
-                style="@style/NormalText"
-                android:layout_toEndOf="@id/tv5"
                 android:layout_centerVertical="true"
-                />
+                android:layout_toEndOf="@id/tv5"
+                android:text="@string/placeholder_string" />
 
 
         </RelativeLayout>
