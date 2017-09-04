@@ -28,7 +28,7 @@ public class SummaryActivity extends AppCompatActivity {
 
         manager = new SimpleBookManager();
 
-        String str1 = manager.count() == 0 ? "" : String.valueOf(manager.count()) + " ";
+        String str1 = manager.count() == 0 ? "" : String.valueOf(manager.count());
         bookCount.setText(str1);
         String str2 = manager.getTotalCost() < 0 ? "" : String.valueOf(manager.getTotalCost());
         totalCost.setText(str2);

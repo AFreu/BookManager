@@ -1,16 +1,21 @@
 <resources>
     <string name="app_name">BookManager</string>
 
-    <string name="details_title">Title:</string>
-    <string name="details_author">Author:</string>
-    <string name="details_course">Course:</string>
-    <string name="details_price">Price:</string>
-    <string name="details_ISBN">ISBN:</string>
+    <!--'\u0020' is a blankspace - strings are always trimmed-->
+
+    <string name="placeholder_string">**Placeholder**</string>
+    <string name="placeholder_number">#N</string>
+
+    <string name="details_title">Title:\u0020</string>
+    <string name="details_author">Author:\u0020</string>
+    <string name="details_course">Course:\u0020</string>
+    <string name="details_price">Price:\u0020</string>
+    <string name="details_ISBN">ISBN:\u0020</string>
 
 
-    <string name="summary_bookCount">books in your library</string>
-    <string name="summary_totalCost">Total cost: </string>
-    <string name="summary_mostExpensive">Most expensive item: </string>
-    <string name="summary_leastExpensive">Least expensive item: </string>
-    <string name="summary_avaragePrice">Avarage price: </string>
+    <string name="summary_bookCount">\u0020books in your library.</string>
+    <string name="summary_totalCost">Total cost:\u0020</string>
+    <string name="summary_mostExpensive">Most expensive item:\u0020</string>
+    <string name="summary_leastExpensive">Least expensive item:\u0020</string>
+    <string name="summary_avaragePrice">Avarage price:\u0020</string>
 </resources>
