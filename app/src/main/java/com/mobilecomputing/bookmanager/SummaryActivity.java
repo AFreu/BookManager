@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.mobilecomputing.bookmanager.Models.Book;
 import com.mobilecomputing.bookmanager.Models.BookManager;
 import com.mobilecomputing.bookmanager.Models.SimpleBookManager;
 
@@ -28,7 +26,7 @@ public class SummaryActivity extends AppCompatActivity {
         leastExpensive = (TextView) findViewById(R.id.summary_leastExpensive);
         avarageCost = (TextView) findViewById(R.id.summary_avaragePrice);
 
-        manager = new Gson().fromJson(getIntent().getStringExtra("Manager"), SimpleBookManager.class);
+        manager = new SimpleBookManager();
 
         String str1 = manager.count() == 0 ? "" : String.valueOf(manager.count()) + " ";
         bookCount.setText(str1);
