@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.group5.bookmanager2.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingRight="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="26dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/summary_bookCount"
+                style="@style/HeadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_number" />
+
+            <TextView
+                style="@style/HeadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/summary_bookCount" />
+        </LinearLayout>
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/tableLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+            <TableRow>
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv1"
+                    android:layout_width="0dp"
+                    android:layout_weight=".4"
+                    android:text="@string/summary_totalCost"
+                    style="@style/GridTitleText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/summary_totalCost"
+                    style="@style/NormalText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight=".6"
+                    android:text="@string/placeholder_string" />
+
+            </TableRow>
+            <TableRow>
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv2"
+                    android:layout_width="0dp"
+                    android:layout_weight=".4"
+                    android:text="@string/summary_mostExpensive"
+                    style="@style/GridTitleText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/summary_mostExpensive"
+                    style="@style/NormalText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight=".6"
+                    android:text="@string/placeholder_string" />
+
+            </TableRow>
+            <TableRow>
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv3"
+                    android:layout_width="0dp"
+                    android:layout_weight=".4"
+                    android:text="@string/summary_leastExpensive"
+                    style="@style/GridTitleText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/summary_leastExpensive"
+                    style="@style/NormalText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight=".6"
+                    android:text="@string/placeholder_string" />
+
+            </TableRow>
+            <TableRow>
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv4"
+                    android:layout_width="0dp"
+                    android:layout_weight=".4"
+                    android:text="@string/summary_avaragePrice"
+                    style="@style/GridTitleText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/summary_avaragePrice"
+                    style="@style/NormalText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight=".6"
+                    android:text="@string/placeholder_string" />
+
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+
+
+</android.widget.RelativeLayout>
