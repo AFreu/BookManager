@@ -12,6 +12,16 @@
     <string name="details_price">Price:\u0020</string>
     <string name="details_ISBN">ISBN:\u0020</string>
 
+    <string name="details_currency">SEK</string>
+
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="placeholder_title">E.g Dragons nest</string>
+    <string name="placeholder_author">E.g Dickens, Charles</string>
+    <string name="placeholder_course">E.g English 101</string>
+    <string name="placeholder_price">E.g 499</string>
+    <string name="placeholder_ISBN">E.g 123456789</string>
 
     <string name="summary_bookCount">\u0020books in your library.</string>
     <string name="summary_totalCost">Total cost:\u0020</string>

@@ -1,5 +1,7 @@
 package com.group5.bookmanager2.Models;
 
+import android.content.SharedPreferences;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,10 +12,14 @@ import java.util.Iterator;
 
 public class BookManager implements Serializable {
 
+    public static final String PREFS_NAME = "MyPrefsFile";
+
+
     private ArrayList<Book> books;
     private static BookManager manager;
 
-    private BookManager(){
+    private BookManager(SharedPreferences prefs){
+
 
         books = new ArrayList<>();
 
@@ -100,8 +106,8 @@ public class BookManager implements Serializable {
 
     }
 
-    public static BookManager getBookmanager() {
-        if(manager == null) manager = new BookManager();
+    public static BookManager getBookmanager(SharedPreferences prefs) {
+        if(manager == null) manager = new BookManager(prefs);
         return manager;
     }
 }

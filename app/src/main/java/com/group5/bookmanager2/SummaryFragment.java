@@ -1,7 +1,5 @@
 package com.group5.bookmanager2;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.group5.bookmanager2.Models.BookManager;
+import com.group5.bookmanager2.Models.BaseFragment;
 
 /*
 *//**
@@ -20,7 +18,7 @@ import com.group5.bookmanager2.Models.BookManager;
  * Use the {@link SummaryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SummaryFragment extends Fragment {
+public class SummaryFragment extends BaseFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,8 +32,6 @@ public class SummaryFragment extends Fragment {
     private TextView mostExpensive;
     private TextView leastExpensive;
     private TextView avarageCost;
-    BookManager manager;
-    //private OnFragmentInteractionListener mListener;
 
     public SummaryFragment() {
         // Required empty public constructor
@@ -79,58 +75,20 @@ public class SummaryFragment extends Fragment {
         leastExpensive = (TextView) view.findViewById(R.id.summary_leastExpensive);
         avarageCost = (TextView) view.findViewById(R.id.summary_avaragePrice);
 
-        manager = BookManager.getBookmanager();
+        mBookManager = mListener.getBookManager();
 
-        String str1 = manager.count() == 0 ? "" : String.valueOf(manager.count());
+        String str1 = mBookManager.count() == 0 ? "" : String.valueOf(mBookManager.count());
         bookCount.setText(str1);
-        String str2 = manager.getTotalCost() < 0 ? "" : String.valueOf(manager.getTotalCost());
+        String str2 = mBookManager.getTotalCost() < 0 ? "" : String.valueOf(mBookManager.getTotalCost());
         totalCost.setText(str2);
-        String str3 = manager.getMaxPrice() < 0 ? "" : String.valueOf(manager.getMaxPrice());
+        String str3 = mBookManager.getMaxPrice() < 0 ? "" : String.valueOf(mBookManager.getMaxPrice());
         mostExpensive.setText(str3);
-        String str4 = manager.getMinPrice() < 0 ? "" : String.valueOf(manager.getMinPrice());
+        String str4 = mBookManager.getMinPrice() < 0 ? "" : String.valueOf(mBookManager.getMinPrice());
         leastExpensive.setText(str4);
-        String str5 = manager.getMeanPrice() < 0 ? "" : String.valueOf(manager.getMeanPrice());
+        String str5 = mBookManager.getMeanPrice() < 0 ? "" : String.valueOf(mBookManager.getMeanPrice());
         avarageCost.setText(str5);
         // Inflate the layout for this fragment
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-       /* if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }*/
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        /*if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }*/
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        //mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    /*public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }*/
 }

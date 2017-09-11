@@ -1,5 +1,6 @@
 package com.group5.bookmanager2;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,7 +18,12 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity  {
+import com.group5.bookmanager2.Models.BookManager;
+import com.group5.bookmanager2.Models.FragmentListener;
+
+public class MainActivity extends AppCompatActivity implements FragmentListener {
+
+
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -54,6 +60,9 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
+
+
+
     }
 
 
@@ -74,15 +83,18 @@ public class MainActivity extends AppCompatActivity  {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.add_book) {
+            Intent intent = new Intent(this, AddBookActivity.class);
+            startActivity(intent);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-
-
-
+    @Override
+    public BookManager getBookManager() {
+        return BookManager.getBookmanager(getSharedPreferences(BookManager.PREFS_NAME, 0));
+    }
 
 
     /**
