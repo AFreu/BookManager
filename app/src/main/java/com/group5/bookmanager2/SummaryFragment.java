@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.group5.bookmanager2.Models.BaseFragment;
+import com.group5.bookmanager2.Models.BookManager;
 
 /*
 *//**
@@ -18,7 +19,8 @@ import com.group5.bookmanager2.Models.BaseFragment;
  * Use the {@link SummaryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SummaryFragment extends BaseFragment {
+public class SummaryFragment extends BaseFragment
+    implements BookManager.BookManagerListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -76,6 +78,15 @@ public class SummaryFragment extends BaseFragment {
         avarageCost = (TextView) view.findViewById(R.id.summary_avaragePrice);
 
         mBookManager = mListener.getBookManager();
+        mBookManager.addListener(this);
+
+        updateUI();
+
+        // Inflate the layout for this fragment
+        return view;
+    }
+
+    public void updateUI() {
 
         String str1 = mBookManager.count() == 0 ? "" : String.valueOf(mBookManager.count());
         bookCount.setText(str1);
@@ -87,8 +98,10 @@ public class SummaryFragment extends BaseFragment {
         leastExpensive.setText(str4);
         String str5 = mBookManager.getMeanPrice() < 0 ? "" : String.valueOf(mBookManager.getMeanPrice());
         avarageCost.setText(str5);
-        // Inflate the layout for this fragment
-        return view;
     }
 
+    @Override
+    public void bookDataChanged() {
+        updateUI();
+    }
 }

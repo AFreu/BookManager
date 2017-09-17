@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    return PlaceholderFragment.newInstance(position + 1);
+                    return CollectionFragment.newInstance();
                 case 1:
                     return SummaryFragment.newInstance(String.valueOf(position+1), "test");
             }
@@ -167,9 +167,9 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return getString(R.string.tabs_collection);
                 case 1:
-                    return "SECTION 2";
+                    return getString(R.string.tabs_summary);
                 case 2:
                     return "SECTION 3";
             }

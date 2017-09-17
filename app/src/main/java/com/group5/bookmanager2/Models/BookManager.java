@@ -13,6 +13,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -21,6 +22,10 @@ import java.util.Set;
 
 public class BookManager implements Serializable {
 
+    public interface BookManagerListener {
+        void bookDataChanged();
+    }
+
     public static final String PREFS_NAME = "MyPrefsFile";
     public static final String PREFS_BOOK_TAG = "SAVED_BOOKS";
 
@@ -28,9 +33,11 @@ public class BookManager implements Serializable {
     private static BookManager manager;
     private SharedPreferences prefs;
 
+    private List<BookManagerListener> listeners;
+
     private BookManager(SharedPreferences prefs){
 
-
+        listeners = new ArrayList<>();
         books = new ArrayList<>();
         this.prefs = prefs;
 
@@ -45,6 +52,10 @@ public class BookManager implements Serializable {
 
     }
 
+    public void addListener(BookManagerListener listener) {
+        listeners.add(listener);
+    }
+
     public int count() {
         return books.size();
     }
@@ -57,6 +68,9 @@ public class BookManager implements Serializable {
         Book book = new Book();
         books.add(book);
 
+        for(BookManagerListener listener : listeners)
+            listener.bookDataChanged();
+
         saveChanges();
 
         return book;
@@ -68,6 +82,9 @@ public class BookManager implements Serializable {
 
     public void removeBook(Book book) {
         books.remove(book);
+
+        for(BookManagerListener listener : listeners)
+            listener.bookDataChanged();
 
         saveChanges();
     }

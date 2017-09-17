@@ -30,4 +30,7 @@
     <string name="summary_avaragePrice">Avarage price:\u0020</string>
     <string name="add_book">Add Book</string>
     <string name="SHARED_PREFS_TAG">SHARED_PREFS</string>
+    <string name="collection_title">Your book collection</string>
+    <string name="tabs_collection">Collection</string>
+    <string name="tabs_summary">Summary</string>
 </resources>

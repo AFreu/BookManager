@@ -7,9 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.group5.bookmanager2.Models.BaseFragment;
+import com.group5.bookmanager2.Models.Book;
 import com.group5.bookmanager2.Models.BookManager;
 
 /*
@@ -23,40 +26,23 @@ import com.group5.bookmanager2.Models.BookManager;
  * Use the {@link CollectionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CollectionFragment extends BaseFragment {
+public class CollectionFragment extends BaseFragment implements BookManager.BookManagerListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "MANAGER";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-    private TextView bookCount;
-    private TextView totalCost;
-    private TextView mostExpensive;
-    private TextView leastExpensive;
-    private TextView avarageCost;
+    private ListView bookList;
+    private ArrayAdapter<String> bookAdapter;
+    private BookManager bm;
 
     public CollectionFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SummaryFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CollectionFragment newInstance(String param1, String param2) {
+    public static CollectionFragment newInstance() {
         CollectionFragment fragment = new CollectionFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -64,10 +50,6 @@ public class CollectionFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
 
@@ -75,10 +57,33 @@ public class CollectionFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_summary, container, false);
+        View view = inflater.inflate(R.layout.fragment_collection, container, false);
 
+        bookList = view.findViewById(R.id.book_list);
+        bookAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1);
+
+        bm = BookManager.getBookmanager(getContext().getSharedPreferences(BookManager.PREFS_NAME, 0));
+        bm.addListener(this);
+
+        updateUI();
+
+        bookList.setAdapter(bookAdapter);
         return view;
     }
 
+    public void updateUI() {
 
+        bookAdapter.clear();
+
+        for(Book book : bm.getAllBooks())
+            bookAdapter.add(book.getTitle() + " by " + book.getAuthor());
+
+        bookAdapter.notifyDataSetChanged();
+    }
+
+
+    @Override
+    public void bookDataChanged() {
+        updateUI();
+    }
 }
