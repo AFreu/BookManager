@@ -29,4 +29,5 @@
     <string name="summary_leastExpensive">Least expensive item:\u0020</string>
     <string name="summary_avaragePrice">Avarage price:\u0020</string>
     <string name="add_book">Add Book</string>
+    <string name="SHARED_PREFS_TAG">SHARED_PREFS</string>
 </resources>

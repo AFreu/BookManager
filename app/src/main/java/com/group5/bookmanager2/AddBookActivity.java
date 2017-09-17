@@ -2,6 +2,7 @@ package com.group5.bookmanager2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -70,9 +71,9 @@ public class AddBookActivity extends AppCompatActivity {
         Log.d("AddBook", "done" );
 
         if(addBook()){
-            finish();
+            BookManager.getBookmanager(getSharedPreferences(BookManager.PREFS_NAME, 0)).createBook();
+            this.finish();
         }
-
 
     }
 
