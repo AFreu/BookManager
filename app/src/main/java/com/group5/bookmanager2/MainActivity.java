@@ -57,12 +57,6 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-
-
-
-
-
     }
 
 

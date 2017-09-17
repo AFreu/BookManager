@@ -33,4 +33,9 @@
     <string name="collection_title">Your book collection</string>
     <string name="tabs_collection">Collection</string>
     <string name="tabs_summary">Summary</string>
+    <string name="detail_text_title">Title</string>
+    <string name="detail_text_author">Author</string>
+    <string name="detail_text_isbn">ISBN</string>
+    <string name="detail_text_price">Price</string>
+    <string name="detail_text_course">Course</string>
 </resources>

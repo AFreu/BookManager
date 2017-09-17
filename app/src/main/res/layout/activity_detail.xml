@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TableRow>
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_weight=".4"
+                android:text="@string/detail_text_title"
+                style="@style/GridTitleText"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/detail_title"
+                style="@style/NormalText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight=".6"
+                android:text="@string/placeholder_string" />
+
+        </TableRow>
+        <TableRow>
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_weight=".4"
+                android:text="@string/detail_text_author"
+                style="@style/GridTitleText"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/detail_author"
+                style="@style/NormalText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight=".6"
+                android:text="@string/placeholder_string" />
+
+        </TableRow>
+        <TableRow>
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_weight=".4"
+                android:text="@string/detail_text_isbn"
+                style="@style/GridTitleText"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/detail_isbn"
+                style="@style/NormalText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight=".6"
+                android:text="@string/placeholder_string" />
+
+        </TableRow>
+        <TableRow>
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_weight=".4"
+                android:text="@string/detail_text_price"
+                style="@style/GridTitleText"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/detail_price"
+                style="@style/NormalText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight=".6"
+                android:text="@string/placeholder_string" />
+
+        </TableRow>
+        <TableRow>
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_weight=".4"
+                android:text="@string/detail_text_course"
+                style="@style/GridTitleText"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/detail_course"
+                style="@style/NormalText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight=".6"
+                android:text="@string/placeholder_string" />
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

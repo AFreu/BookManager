@@ -1,12 +1,14 @@
 package com.group5.bookmanager2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -54,13 +56,20 @@ public class CollectionFragment extends BaseFragment implements BookManager.Book
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_collection, container, false);
 
         bookList = view.findViewById(R.id.book_list);
         bookAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1);
+        bookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), DetailActivity.class);
+                getContext().startActivity(intent);
+            }
+        });
 
         bm = BookManager.getBookmanager(getContext().getSharedPreferences(BookManager.PREFS_NAME, 0));
         bm.addListener(this);
