@@ -22,7 +22,7 @@ import java.util.Set;
 public class BookManager implements Serializable {
 
     public static final String PREFS_NAME = "MyPrefsFile";
-
+    public static final String PREFS_BOOK_TAG = "SAVED_BOOKS";
 
     private ArrayList<Book> books;
     private static BookManager manager;
@@ -33,6 +33,8 @@ public class BookManager implements Serializable {
 
         books = new ArrayList<>();
         this.prefs = prefs;
+
+        loadBooks();
 
         /*for(int i = 0; i < 5; i++){
             Book book = new Book();
@@ -127,17 +129,26 @@ public class BookManager implements Serializable {
         for (Book b : books) {
             String jsonBook = gson.toJson(b);
             savedBooks.add(jsonBook);
-
-            Log.d("BookManager", jsonBook);
         }
 
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putStringSet("SAVED_BOOKS", savedBooks).apply();
+        editor.putStringSet(PREFS_BOOK_TAG, savedBooks).apply();
 
     }
 
     public static BookManager getBookmanager(SharedPreferences prefs) {
         if(manager == null) manager = new BookManager(prefs);
         return manager;
+    }
+
+    public void loadBooks() {
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+
+        Set<String> jsonBooks = prefs.getStringSet(PREFS_BOOK_TAG, new HashSet<String>());
+
+        for(String jsonString : jsonBooks) {
+            books.add(gson.fromJson(jsonString, Book.class));
+        }
     }
 }
