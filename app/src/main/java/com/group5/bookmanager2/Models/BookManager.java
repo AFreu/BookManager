@@ -64,6 +64,12 @@ public class BookManager implements Serializable {
         return books.get(index);
     }
 
+    public String getBookJson(int index) {
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        return gson.toJson(books.get(index));
+    }
+
     public Book createBook() {
         Book book = new Book();
         books.add(book);
