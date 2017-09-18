@@ -27,6 +27,8 @@ public class DetailActivity extends AppCompatActivity {
     private Book book;
     private BookManager bm;
 
+    public static final int ERROR_CODE_NO_BOOK = 999999999;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +68,7 @@ public class DetailActivity extends AppCompatActivity {
 
         if (id == R.id.edit_book) {
             Intent intent = new Intent(this, AddBookActivity.class);
-            intent.putExtra(BOOK_POS_TAG, book);
+            intent.putExtra(BOOK_POS_TAG, getIntent().getIntExtra(BOOK_POS_TAG, ERROR_CODE_NO_BOOK));
             startActivity(intent);
             return true;
         } else if (id == R.id.remove_book) {
