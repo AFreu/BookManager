@@ -92,9 +92,9 @@ public class AddBookActivity extends AppCompatActivity {
         if(ISBN != null) newBook.setIsbn(ISBN);
         newBook.setPrice(price);
 
+        bm.updateListeners();
 
         return true;
-
     }
 
 
@@ -102,7 +102,6 @@ public class AddBookActivity extends AppCompatActivity {
         Log.d("AddBook", "done" );
 
         if(addBook()){
-            bm.createBook();
             this.finish();
         }
 

@@ -66,12 +66,15 @@ public class BookManager implements Serializable {
         Book book = new Book();
         books.add(book);
 
-        for(BookManagerListener listener : listeners)
-            listener.bookDataChanged();
-
         saveChanges();
 
         return book;
+    }
+
+    public void updateListeners() {
+
+        for(BookManagerListener listener : listeners)
+            listener.bookDataChanged();
     }
 
     public ArrayList<Book> getAllBooks() {
@@ -82,8 +85,7 @@ public class BookManager implements Serializable {
 
         books.remove(book);
 
-        for(BookManagerListener listener : listeners)
-            listener.bookDataChanged();
+        updateListeners();
 
         saveChanges();
     }
