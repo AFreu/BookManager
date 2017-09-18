@@ -38,4 +38,6 @@
     <string name="detail_text_isbn">ISBN</string>
     <string name="detail_text_price">Price</string>
     <string name="detail_text_course">Course</string>
+    <string name="edit_book">Edit book</string>
+    <string name="delete_book">Delete book</string>
 </resources>

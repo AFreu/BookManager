@@ -1,13 +1,16 @@
 package com.group5.bookmanager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.group5.bookmanager2.Models.Book;
+import com.group5.bookmanager2.Models.BookManager;
 
 import static com.group5.bookmanager2.CollectionFragment.BOOK_TAG;
 
@@ -58,7 +61,26 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.edit_book) {
+            Intent intent = new Intent(this, AddBookActivity.class);
+            intent.putExtra(BOOK_TAG, getIntent().getStringExtra(BOOK_TAG));
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.remove_book) {
+
+            BookManager bm = BookManager.getBookmanager(getSharedPreferences(BookManager.PREFS_NAME, 0));
+            bm.removeBook(book);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
