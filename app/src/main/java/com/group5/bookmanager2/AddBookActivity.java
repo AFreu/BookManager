@@ -23,6 +23,8 @@ public class AddBookActivity extends AppCompatActivity {
     private Book currentBook;
     private BookManager bm;
 
+    private boolean editing = false;
+    private int bookPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +44,14 @@ public class AddBookActivity extends AppCompatActivity {
 
     public void updateUI() {
 
-        int bookPosition = getIntent().getIntExtra(BOOK_POS_TAG, ERROR_CODE_NO_BOOK);
+        bookPosition = getIntent().getIntExtra(BOOK_POS_TAG, ERROR_CODE_NO_BOOK);
 
         Log.d("BookManager", "pos: " + bookPosition);
         // if no book was sent
         if(bookPosition == ERROR_CODE_NO_BOOK)
             return;
+
+        editing = true;
 
         currentBook = bm.getBook(bookPosition);
 
@@ -75,15 +79,10 @@ public class AddBookActivity extends AppCompatActivity {
         String ISBN = ISBN_in.getText().toString().trim();
         String price_String = price_in.getText().toString().trim();
 
-        int price = price_String.isEmpty() ? 0 : Integer.parseInt(price_String);
+        int price = formatPrice(price_String);
 
-
-        if(title == null || title.isEmpty()){
-            title_in.setError("The book must have a title!");
-            title_in.requestFocus();
+        if(!checkTitle(title))
             return false;
-        }
-
 
         Book newBook = bm.createBook();
         newBook.setTitle(title);
@@ -97,14 +96,54 @@ public class AddBookActivity extends AppCompatActivity {
         return true;
     }
 
+    public boolean checkTitle(String title) {
+
+        if(title == null || title.isEmpty()){
+            title_in.setError("The book must have a title!");
+            title_in.requestFocus();
+
+            return false;
+        }
+
+        return true;
+    }
+
+    public int formatPrice(String priceString) {
+        return priceString.isEmpty() ? 0 : Integer.parseInt(priceString);
+    }
+
 
     public void done(View view){
         Log.d("AddBook", "done" );
 
-        if(addBook()){
-            this.finish();
+        if (editing) {
+
+            if(updateBook()) {
+                bm.updateListeners();
+                this.finish();
+            }
+
+        } else {
+
+            if(addBook())
+                this.finish();
         }
 
+    }
+
+    public boolean updateBook() {
+        int price = formatPrice(price_in.getText().toString().trim());
+
+        if(!checkTitle(title_in.getText().toString().trim()))
+            return false;
+
+        bm.getBook(bookPosition).setTitle(title_in.getText().toString().trim());
+        bm.getBook(bookPosition).setAuthor(author_in.getText().toString().trim());
+        bm.getBook(bookPosition).setCourse(course_in.getText().toString().trim());
+        bm.getBook(bookPosition).setIsbn(ISBN_in.getText().toString().trim());
+        bm.getBook(bookPosition).setPrice(price);
+
+        return true;
     }
 
     public void cancel(View view){
