@@ -1,18 +1,16 @@
 package com.group5.bookmanager2;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.AttributeSet;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
 import com.group5.bookmanager2.Models.Book;
 import com.group5.bookmanager2.Models.BookManager;
-import com.group5.bookmanager2.R;
+
+import static com.group5.bookmanager2.CollectionFragment.BOOK_POS_TAG;
+import static com.group5.bookmanager2.DetailActivity.ERROR_CODE_NO_BOOK;
 
 public class AddBookActivity extends AppCompatActivity {
 
@@ -21,6 +19,9 @@ public class AddBookActivity extends AppCompatActivity {
     private EditText course_in;
     private EditText ISBN_in;
     private EditText price_in;
+
+    private Book currentBook;
+    private BookManager bm;
 
 
     @Override
@@ -33,6 +34,36 @@ public class AddBookActivity extends AppCompatActivity {
         course_in = (EditText) findViewById(R.id.addBook_course);
         ISBN_in = (EditText) findViewById(R.id.addBook_ISBN);
         price_in = (EditText) findViewById(R.id.addBook_price);
+
+        bm = BookManager.getBookmanager(getSharedPreferences(BookManager.PREFS_NAME, 0));
+
+        updateUI();
+    }
+
+    public void updateUI() {
+
+        int bookPosition = getIntent().getIntExtra(BOOK_POS_TAG, ERROR_CODE_NO_BOOK);
+
+        Log.d("BookManager", "pos: " + bookPosition);
+        // if no book was sent
+        if(bookPosition == ERROR_CODE_NO_BOOK)
+            return;
+
+        currentBook = bm.getBook(bookPosition);
+
+        if(currentBook.getTitle() != null)
+            title_in.setText(currentBook.getTitle());
+
+        if(currentBook.getAuthor() != null)
+            author_in.setText(currentBook.getAuthor());
+
+        if(currentBook.getIsbn() != null)
+            ISBN_in.setText(currentBook.getIsbn());
+
+        price_in.setText("" + currentBook.getPrice());
+
+        if(currentBook.getCourse() != null)
+            course_in.setText(currentBook.getCourse());
 
     }
 
@@ -54,7 +85,7 @@ public class AddBookActivity extends AppCompatActivity {
         }
 
 
-        Book newBook = BookManager.getBookmanager(getSharedPreferences(BookManager.PREFS_NAME, 0)).createBook();
+        Book newBook = bm.createBook();
         newBook.setTitle(title);
         if(author != null) newBook.setAuthor(author);
         if(course != null) newBook.setCourse(course);
@@ -71,7 +102,7 @@ public class AddBookActivity extends AppCompatActivity {
         Log.d("AddBook", "done" );
 
         if(addBook()){
-            BookManager.getBookmanager(getSharedPreferences(BookManager.PREFS_NAME, 0)).createBook();
+            bm.createBook();
             this.finish();
         }
 

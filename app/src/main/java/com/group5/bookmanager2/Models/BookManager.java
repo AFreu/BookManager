@@ -79,6 +79,7 @@ public class BookManager implements Serializable {
     }
 
     public void removeBook(Book book) {
+
         books.remove(book);
 
         for(BookManagerListener listener : listeners)

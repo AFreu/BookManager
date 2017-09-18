@@ -7,12 +7,10 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.group5.bookmanager2.Models.Book;
 import com.group5.bookmanager2.Models.BookManager;
 
-import static com.group5.bookmanager2.CollectionFragment.BOOK_TAG;
+import static com.group5.bookmanager2.CollectionFragment.BOOK_POS_TAG;
 
 /**
  * Created by mikael on 2017-09-17.
@@ -27,6 +25,9 @@ public class DetailActivity extends AppCompatActivity {
     private AppCompatTextView courseTextView;
 
     private Book book;
+    private BookManager bm;
+
+    public static final int ERROR_CODE_NO_BOOK = 999999999;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,8 @@ public class DetailActivity extends AppCompatActivity {
         priceTextView = (AppCompatTextView) findViewById(R.id.detail_price);
         courseTextView = (AppCompatTextView) findViewById(R.id.detail_course);
 
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-
-        String bookJson = getIntent().getStringExtra(BOOK_TAG);
-
-        book = gson.fromJson(bookJson, Book.class);
+        bm = BookManager.getBookmanager(getSharedPreferences(BookManager.PREFS_NAME, 0));
+        book = bm.getBook(getIntent().getIntExtra(BOOK_POS_TAG, 0));
 
         updateUI();
     }
@@ -71,7 +68,7 @@ public class DetailActivity extends AppCompatActivity {
 
         if (id == R.id.edit_book) {
             Intent intent = new Intent(this, AddBookActivity.class);
-            intent.putExtra(BOOK_TAG, getIntent().getStringExtra(BOOK_TAG));
+            intent.putExtra(BOOK_POS_TAG, getIntent().getIntExtra(BOOK_POS_TAG, ERROR_CODE_NO_BOOK));
             startActivity(intent);
             return true;
         } else if (id == R.id.remove_book) {
