@@ -18,6 +18,7 @@ public class CollectionFragment extends BaseFragment
         implements BookManager.BookManagerListener {
 
     public static final String BOOK_TAG = "BOOK";
+    public static final String BOOK_POS_TAG = "BOOK_POS";
 
     // TODO: Rename and change types of parameters
     private ListView bookList;
@@ -56,7 +57,7 @@ public class CollectionFragment extends BaseFragment
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(getContext(), DetailActivity.class);
-                intent.putExtra(BOOK_TAG, bm.getBook(position));
+                intent.putExtra(BOOK_POS_TAG, position);
                 getContext().startActivity(intent);
             }
         });

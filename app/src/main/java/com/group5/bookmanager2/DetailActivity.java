@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import com.group5.bookmanager2.Models.Book;
 import com.group5.bookmanager2.Models.BookManager;
 
-import static com.group5.bookmanager2.CollectionFragment.BOOK_TAG;
+import static com.group5.bookmanager2.CollectionFragment.BOOK_POS_TAG;
 
 /**
  * Created by mikael on 2017-09-17.
@@ -25,6 +25,7 @@ public class DetailActivity extends AppCompatActivity {
     private AppCompatTextView courseTextView;
 
     private Book book;
+    private BookManager bm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,8 @@ public class DetailActivity extends AppCompatActivity {
         priceTextView = (AppCompatTextView) findViewById(R.id.detail_price);
         courseTextView = (AppCompatTextView) findViewById(R.id.detail_course);
 
-        book = (Book) getIntent().getSerializableExtra(BOOK_TAG);
+        bm = BookManager.getBookmanager(getSharedPreferences(BookManager.PREFS_NAME, 0));
+        book = bm.getBook(getIntent().getIntExtra(BOOK_POS_TAG, 0));
 
         updateUI();
     }
@@ -64,7 +66,7 @@ public class DetailActivity extends AppCompatActivity {
 
         if (id == R.id.edit_book) {
             Intent intent = new Intent(this, AddBookActivity.class);
-            intent.putExtra(BOOK_TAG, book);
+            intent.putExtra(BOOK_POS_TAG, book);
             startActivity(intent);
             return true;
         } else if (id == R.id.remove_book) {
