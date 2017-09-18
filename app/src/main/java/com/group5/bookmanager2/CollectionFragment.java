@@ -14,20 +14,8 @@ import com.group5.bookmanager2.Models.BaseFragment;
 import com.group5.bookmanager2.Models.Book;
 import com.group5.bookmanager2.Models.BookManager;
 
-/*
-*/
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link //SummaryFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link CollectionFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class CollectionFragment extends BaseFragment implements BookManager.BookManagerListener {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class CollectionFragment extends BaseFragment
+        implements BookManager.BookManagerListener {
 
     public static final String BOOK_TAG = "BOOK";
 
@@ -59,7 +47,7 @@ public class CollectionFragment extends BaseFragment implements BookManager.Book
         View view = inflater.inflate(R.layout.fragment_collection, container, false);
 
         bookList = view.findViewById(R.id.book_list);
-        bookAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1);
+        bookAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1);
 
         bm = BookManager.getBookmanager(getContext().getSharedPreferences(BookManager.PREFS_NAME, 0));
         bm.addListener(this);

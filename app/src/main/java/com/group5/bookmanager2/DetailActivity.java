@@ -4,14 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.Menu;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.group5.bookmanager2.Models.Book;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import static com.group5.bookmanager2.CollectionFragment.BOOK_TAG;
 
@@ -34,8 +30,6 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        String bookJson = getIntent().getStringExtra(BOOK_TAG);
-
         titleTextView = (AppCompatTextView) findViewById(R.id.detail_title);
         authorTextView = (AppCompatTextView) findViewById(R.id.detail_author);
         isbnTextView = (AppCompatTextView) findViewById(R.id.detail_isbn);
@@ -44,6 +38,8 @@ public class DetailActivity extends AppCompatActivity {
 
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
+
+        String bookJson = getIntent().getStringExtra(BOOK_TAG);
 
         book = gson.fromJson(bookJson, Book.class);
 
@@ -54,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
 
         titleTextView.setText(book.getTitle());
         authorTextView.setText(book.getAuthor());
-        isbnTextView.setText("" + book.getIsbn());
+        isbnTextView.setText(book.getIsbn());
         priceTextView.setText("" + book.getPrice());
         courseTextView.setText(book.getCourse());
     }

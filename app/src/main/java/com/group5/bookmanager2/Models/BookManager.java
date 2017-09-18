@@ -42,14 +42,6 @@ public class BookManager implements Serializable {
         this.prefs = prefs;
 
         loadBooks();
-
-        /*for(int i = 0; i < 5; i++){
-            Book book = new Book();
-            book.setTitle("Book"+i);
-            book.setPrice(i);
-            books.add(book);
-        }*/
-
     }
 
     public void addListener(BookManagerListener listener) {
@@ -170,8 +162,7 @@ public class BookManager implements Serializable {
 
         Set<String> jsonBooks = prefs.getStringSet(PREFS_BOOK_TAG, new HashSet<String>());
 
-        for(String jsonString : jsonBooks) {
+        for(String jsonString : jsonBooks)
             books.add(gson.fromJson(jsonString, Book.class));
-        }
     }
 }
