@@ -43,6 +43,12 @@ public class DetailActivity extends AppCompatActivity {
         bm = BookManager.getBookmanager(getSharedPreferences(BookManager.PREFS_NAME, 0));
         book = bm.getBook(getIntent().getIntExtra(BOOK_POS_TAG, 0));
 
+
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
         updateUI();
     }
 
