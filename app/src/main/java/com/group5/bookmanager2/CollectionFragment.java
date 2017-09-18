@@ -56,7 +56,7 @@ public class CollectionFragment extends BaseFragment
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(getContext(), DetailActivity.class);
-                intent.putExtra(BOOK_TAG, bm.getBookJson(position));
+                intent.putExtra(BOOK_TAG, bm.getBook(position));
                 getContext().startActivity(intent);
             }
         });

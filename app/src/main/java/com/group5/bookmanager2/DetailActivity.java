@@ -7,8 +7,6 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.group5.bookmanager2.Models.Book;
 import com.group5.bookmanager2.Models.BookManager;
 
@@ -39,12 +37,7 @@ public class DetailActivity extends AppCompatActivity {
         priceTextView = (AppCompatTextView) findViewById(R.id.detail_price);
         courseTextView = (AppCompatTextView) findViewById(R.id.detail_course);
 
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-
-        String bookJson = getIntent().getStringExtra(BOOK_TAG);
-
-        book = gson.fromJson(bookJson, Book.class);
+        book = (Book) getIntent().getSerializableExtra(BOOK_TAG);
 
         updateUI();
     }
@@ -71,7 +64,7 @@ public class DetailActivity extends AppCompatActivity {
 
         if (id == R.id.edit_book) {
             Intent intent = new Intent(this, AddBookActivity.class);
-            intent.putExtra(BOOK_TAG, getIntent().getStringExtra(BOOK_TAG));
+            intent.putExtra(BOOK_TAG, book);
             startActivity(intent);
             return true;
         } else if (id == R.id.remove_book) {
